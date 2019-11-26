@@ -15,6 +15,9 @@ import { LoginComponent } from './routes/login/login.component';
 import { DashboardComponent } from './routes/dashboard/dashboard.component';
 import { RegisterComponent } from './routes/register/register.component';
 import { NotFoundComponent } from './routes/not-found/not-found.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { CreateComponent } from './routes/create/create.component';
+import { ProfileComponent } from './routes/profile/profile.component';
 // import { UserComponent } from './classes/user/user.component';
 
 @NgModule({
@@ -24,6 +27,9 @@ import { NotFoundComponent } from './routes/not-found/not-found.component';
     DashboardComponent,
     RegisterComponent,
     NotFoundComponent,
+    NavBarComponent,
+    CreateComponent,
+    ProfileComponent
     // cUserComponent
   ],
   imports: [

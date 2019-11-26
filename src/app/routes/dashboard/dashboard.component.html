@@ -1,1 +1,9 @@
-<p>dashboard works!</p>
+<app-nav-bar></app-nav-bar>
+<div class="display-business-cards d-flex">
+  <h1>Business Cards</h1>
+  <div class="message-wrapper h-100">
+    <ng-container *ngFor="let card of cards">
+      <!--app_dashboard-- [card]="card"></!--app_dashboard-->
+    </ng-container>
+  </div>
+</div>
