@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { AngularFirestore } from 'angular/fire/'
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  profileForm: FormGroup;
+
+  constructor(
+    public auth: AuthService,
+    private db: AngularFirestore ) { }
 
   ngOnInit() {
+    this.sub
   }
 
 }

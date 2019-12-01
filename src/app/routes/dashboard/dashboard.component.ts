@@ -5,51 +5,32 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent implements OnInit {
   public cards = [
     {
+      id: '1',
       name: 'George Jungle',
-      business: 'American Express',
-      address: {
-        street: '1234 Winding Way Dr.',
-        suite: '100',
-        city: 'Chicago',
-        state: 'IL',
-        zip: '60606'
-      }
+      phone: '3121212120',
+      email: 'gj@ae.com'
     },
     {
+      id: '2',
       name: 'Jane Jungle',
-      business: 'Bank of America',
-      address: {
-        street: '1234 Jackson Ave.',
-        suite: '400',
-        city: 'Chicago',
-        state: 'IL',
-        zip: '60602'
-      }
+      phone: '3121212121',
+      email: 'jj@boa.com'
     },
     {
+      id: '3',
       name: 'Jane Doe',
-      business: 'Morningstar Inc.',
-      address: {
-        street: '22 Washington Ave.',
-        suite: '',
-        city: 'Chicago',
-        state: 'IL',
-        zip: '60602'
-      }
+      phone: '3121212122',
+      email: 'jd@morningstar.com'
     },
     {
+      id: '4',
       name: 'John Doe',
-      business: 'Walgreens',
-      address: {
-        street: '100 State St.',
-        suite: '100',
-        city: 'Chicago',
-        state: 'IL',
-        zip: '60602'
-      }
+      phone: '3121212123',
+      email: 'jd@walgreens.com'
     }
   ];
   constructor() { }

@@ -1,2 +1,22 @@
 <app-nav-bar></app-nav-bar>
-<p>create works!</p>
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="form-wrapper" text-center>
+    <h2 class="text-center">Create Card</h2>
+    <form [formGroup]="createForm" (submit)="submit()" novalidate>
+      <div class="form-group">
+        <input type="name"  class="form-control" id="name-input" placeholder="Enter Name" formControlName="name">
+      </div>
+      <div class="form-group">
+        <input type="phone"  class="form-control" id="phone-input" placeholder="Enter Phone Number" formControlName="phone">
+      </div>
+      <div class="form-group">
+        <input type="email"  class="form-control" id="email-input" placeholder="Enter Email" formControlName="email">
+      </div>
+
+      <div class="text-center">
+        <button class="btn btn-primary" margin-left="10px" (click)="open()">Web Camera</button>
+        <button type="submit" class="btn btn-primary" margin-right="10px" [disabled]="!createForm.valid">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
