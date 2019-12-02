@@ -6,7 +6,9 @@ import { NgbModule, ModalDismissReasons, NgbModalOptions, NgbModal } from '@ng-b
 import { Subscription } from 'rxjs';
 // import { UploadImageComponent } from '../../components/upload-image/upload-image.component';
 import { WebcamModalComponent } from '../../components/webcam-modal/webcam-modal.component';
+import { Card } from '../../interfaces/card';
 import { HttpParams } from '@angular/common/http';
+import { stringify } from 'querystring';
 
 
 @Component({
@@ -25,11 +27,10 @@ export class CreateComponent implements OnInit {
               private auth: AuthService,
               private router: Router,
               private modalService: NgbModal ) {
-    console.log(`PARAMS: ${HttpParams.toString()}`)
     this.generateForm();
     this.modalOptions = {
-      backdrop:'static',
-      backdropClass:'customBackdrop'
+      backdrop: 'static',
+      backdropClass: 'customBackdrop'
     }
   }
 
@@ -49,7 +50,11 @@ export class CreateComponent implements OnInit {
   }
   public upload() {}
 
-  private submit() {}
+  private add(name: string, phone: string, email: string) {
+    const ownerId = '';
+    this.auth.addCard( {name, phone, email, ownerId} );
+    this.router.navigate([`dashboard`]);
+  }
 
   ngOnInit() {
   }

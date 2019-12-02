@@ -1,13 +1,18 @@
 <app-nav-bar></app-nav-bar>
 <div class="container d-flex justify-content-center align-items-center">
     <div class="form-wrapper" text-center>
-      <h2 class="text-center">Login</h2>
+      <h2 class="text-center">Profile</h2>
       <form [formGroup]="profileForm" (close)="close()" novalidate>
         <div class="form-group">
-          <input type="email" class="form-control" id="email-input" placeholder="Enter Email" formControlName="email">
+          {{user?.email}}
+          <!--
+          <input type="email" class="form-control read-only" id="email-input" value="user?.email">
+          -->
         </div>
         <div class="text-center">
+          <button [routerLink]="'/profile/' + currentUser?.id + '/edit'" disabled=true class="btn btn-primary">Edit Profile</button>
           <button type="close" class="btn btn-primary">close</button>
+
         </div>
       </form>
     </div>

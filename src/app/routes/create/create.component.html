@@ -3,19 +3,24 @@
   <div class="form-wrapper" text-center>
     <h2 class="text-center">Create Card</h2>
     <form [formGroup]="createForm" (submit)="submit()" novalidate>
+        <div class="form-group" hidden>
+            <input type="id"  class="form-control" id="id-input">
+          </div>
       <div class="form-group">
-        <input type="name"  class="form-control" id="name-input" placeholder="Enter Name" formControlName="name">
+        <input type="name"  class="form-control" id="name-input" placeholder="Enter Name" formControlName="name" #name>
       </div>
       <div class="form-group">
-        <input type="phone"  class="form-control" id="phone-input" placeholder="Enter Phone Number" formControlName="phone">
+        <input type="phone"  class="form-control" id="phone-input" placeholder="Enter Phone Number" formControlName="phone" #phone>
       </div>
       <div class="form-group">
-        <input type="email"  class="form-control" id="email-input" placeholder="Enter Email" formControlName="email">
+        <input type="email"  class="form-control" id="email-input" placeholder="Enter Email" formControlName="email" #email>
       </div>
-
+      <div class="form-group" hidden>
+          <input type="ownerId"  class="form-control hidden" id="ownerId-input">
+        </div>
       <div class="text-center">
         <button class="btn btn-primary" margin-left="10px" (click)="open()">Web Camera</button>
-        <button type="submit" class="btn btn-primary" margin-right="10px" [disabled]="!createForm.valid">Submit</button>
+        <button type="submit" class="btn btn-primary" margin-right="10px" (click)="add(name.value, phone.value, email.value)" [disabled]="!createForm.valid">Submit</button>
       </div>
     </form>
   </div>

@@ -1,8 +1,14 @@
-.container {
+.form-container {
   height:100vh;
 }
+.title > a {
+  width:100px;
+  height:100px;
+  text-indent:-999em !important;
+  display:block;
+}
 
-.form {
+.container {
   min-width: 40%;
   margin-bottom: 10%;
   margin-top: 30%;

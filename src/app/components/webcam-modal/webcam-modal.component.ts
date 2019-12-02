@@ -1,6 +1,6 @@
 // Some help from the following sites:
 //   https://x-team.com/blog/webcam-image-capture-angular/
-//   
+//
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -49,6 +49,7 @@ export class WebcamModalComponent {
       { }
     ).subscribe(resp => {
       let text = resp['responses'][0].fullTextAnnotation;
+      console.log(`TEXT: ${text}`);
       if (text === '') {
         alert('No text identified. Please try again.');
       } else {

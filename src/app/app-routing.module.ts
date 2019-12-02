@@ -17,9 +17,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'create', component: CreateComponent, canActivate: [AuthGuard] },
   { path: 'create/process/:text', component: CreateComponent, canActivate: [AuthGuard] },
-  { path: 'create/edit/:id', component: CreateComponent, canActivate: [AuthGuard] },
-  { path: 'create/view/:id', component: CreateComponent, canActivate: [AuthGuard] },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'create/:id/edit/', component: CreateComponent, canActivate: [AuthGuard] },
+  { path: 'create/:id/view/', component: CreateComponent, canActivate: [AuthGuard] },
+  { path: 'profile/:userId', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/not-found'}
 ];
 

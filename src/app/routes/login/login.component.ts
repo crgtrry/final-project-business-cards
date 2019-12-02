@@ -45,7 +45,9 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.auth.login(email, password).subscribe(
           success => {
             if (success) {
-              this.router.navigateByUrl(this.returnUrl);
+              console.log (`successful Login: ${email}: ${password}`);
+            //  this.router.navigateByUrl('dashboard');
+              this.router.navigate([`dashboard`]);
             }
           }
         )

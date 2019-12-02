@@ -23,7 +23,6 @@ import { NotFoundComponent } from './routes/not-found/not-found.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { CreateComponent } from './routes/create/create.component';
 import { ProfileComponent } from './routes/profile/profile.component';
-import { CardComponent } from './components/card/card.component';
 import { CardItemComponent } from './components/card-item/card-item.component';
 import { WebcamModalComponent } from './components/webcam-modal/webcam-modal.component';
 import { CameraComponent } from './components/camera/camera.component';
@@ -38,7 +37,6 @@ import { CameraComponent } from './components/camera/camera.component';
     NavBarComponent,
     CreateComponent,
     ProfileComponent,
-    CardComponent,
     CardItemComponent,
     FileSelectDirective,
     WebcamModalComponent,

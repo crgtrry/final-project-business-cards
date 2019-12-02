@@ -1,15 +1,17 @@
 <app-nav-bar></app-nav-bar>
-<div class="container">
-<div class="form">
-  <div class="d-flex justify-content-center align-items-center col-sm-12 h-100 d-table">
-    <h2 class="text-center">Business Cards</h2>
-  </div>
-  <div class="col-sm-12 h-100 d-table">
-    <ul class="list-group card card-block d-table-cell align-middle">
-      <app-card-item *ngFor="let card of cards"
-        [card]="card">
-      </app-card-item>
-    </ul>
-  </div>
+<div class="form-container d-flex justify-content-center align-items-center">
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="title style=width: 100">
+      <h2 class=text-center>Business Cards</h2>
+    </div>
+    <div>
+      <ul class="d-flex justify-content-center align-items-center">
+        <li class="list-group vertical-align=title">
+          <app-card-item *ngFor="let card of cards | async"
+            [card]="card">
+          </app-card-item>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
