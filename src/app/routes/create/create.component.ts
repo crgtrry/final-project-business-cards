@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AuthService } from './../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModule, ModalDismissReasons, NgbModalOptions, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 // import { UploadImageComponent } from '../../components/upload-image/upload-image.component';
@@ -21,11 +21,17 @@ export class CreateComponent implements OnInit {
   public uploadForm: FormGroup;
   private modalOptions: NgbModalOptions;
 
+  public theData: Subscription;
+  public text: string;
+  public id: string;
+  public noFill: boolean; //if no data provided then, empty fill.
+
   private subscriptions: Subscription[] = [];
 
   constructor(private fb: FormBuilder,
               private auth: AuthService,
               private router: Router,
+              private route: ActivatedRoute,
               private modalService: NgbModal ) {
     this.generateForm();
     this.modalOptions = {
@@ -57,6 +63,15 @@ export class CreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.theData = this.route.params.subscribe( params => {
+      this.noFill = false;
+      this.text = params["text"] ? params["text"]: null; // if not empty, filling fields from provided text string vi google vision
+      if (!this.text) {
+        this.id = params["id"] ? params["id"] : null; // if not empty, filling fields from database
+      } else {
+        this.noFill = true;
+      }
+    })
   }
 
 }

@@ -48,7 +48,8 @@ export class WebcamModalComponent {
       },
       { }
     ).subscribe(resp => {
-      let text = resp['responses'][0].fullTextAnnotation;
+      let text: string;
+      text = resp['responses'][0].fullTextAnnotation;
       console.log(`TEXT: ${text}`);
       if (text === '') {
         alert('No text identified. Please try again.');

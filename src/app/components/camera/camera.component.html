@@ -6,7 +6,6 @@
       [trigger]="triggerObservable"
       (imageCapture)="handleImage($event)"
         *ngIf="showWebcam"
-          [allowCameraSwitch]="allowCameraSwitch"
           [videoOptions]="videoOptions"
           (initError)="handleInitError($event)">
     </webcam>
