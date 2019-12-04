@@ -1,8 +1,10 @@
 <app-nav-bar></app-nav-bar>
 <div class="container d-flex justify-content-center align-items-center">
   <div class="form-wrapper" text-center>
-    <h2 class="text-center">Create Card</h2>
-    <form [formGroup]="createForm" novalidate>
+    <div>
+        <h2 class="text-center">Review Card</h2>
+    </div>
+    <form [formGroup]="addForm">
         <div class="form-group" hidden>
             <input type="id"  class="form-control" id="id-input">
           </div>
@@ -19,7 +21,6 @@
           <input type="ownerId"  class="form-control hidden" id="ownerId-input">
         </div>
       <div class="text-center">
-        <button class="btn btn-primary" margin-left="10px" (click)="open()">Web Camera</button>
         <button type="submit" class="btn btn-primary" margin-right="10px" (click)="add(name.value, phone.value, email.value)" [disabled]="!createForm.valid">Submit</button>
       </div>
     </form>

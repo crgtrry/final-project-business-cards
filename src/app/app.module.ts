@@ -26,6 +26,7 @@ import { ProfileComponent } from './routes/profile/profile.component';
 import { CardItemComponent } from './components/card-item/card-item.component';
 import { WebcamModalComponent } from './components/webcam-modal/webcam-modal.component';
 import { CameraComponent } from './components/camera/camera.component';
+import { AddCardComponent } from './routes/add-card/add-card.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { CameraComponent } from './components/camera/camera.component';
     CardItemComponent,
     FileSelectDirective,
     WebcamModalComponent,
-    CameraComponent
+    CameraComponent,
+    AddCardComponent
   ],
   imports: [
     BrowserModule,

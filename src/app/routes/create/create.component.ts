@@ -18,8 +18,8 @@ import { stringify } from 'querystring';
 })
 export class CreateComponent implements OnInit {
   public createForm: FormGroup;
-  public uploadForm: FormGroup;
   private modalOptions: NgbModalOptions;
+  card: Card;
 
   public theData: Subscription;
   public text: string;
@@ -33,22 +33,19 @@ export class CreateComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private modalService: NgbModal ) {
-    this.generateForm();
     this.modalOptions = {
       backdrop: 'static',
       backdropClass: 'customBackdrop'
-    }
+    };
+    this.generateForm();
   }
 
   private generateForm(): void {
     this.createForm = this.fb.group( {
       name: ['', [Validators.required]],
-      phone: ['', []],
+      phone: ['', [Validators.required]],
       email: ['', [Validators.required,  Validators.email]]
     });
-    this.uploadForm = this.fb.group({
-      file: ['', [Validators.required]]
-    })
   }
 
   open() {
@@ -62,16 +59,5 @@ export class CreateComponent implements OnInit {
     this.router.navigate([`dashboard`]);
   }
 
-  ngOnInit() {
-    this.theData = this.route.params.subscribe( params => {
-      this.noFill = false;
-      this.text = params["text"] ? params["text"]: null; // if not empty, filling fields from provided text string vi google vision
-      if (!this.text) {
-        this.id = params["id"] ? params["id"] : null; // if not empty, filling fields from database
-      } else {
-        this.noFill = true;
-      }
-    })
-  }
-
+  ngOnInit() {}
 }

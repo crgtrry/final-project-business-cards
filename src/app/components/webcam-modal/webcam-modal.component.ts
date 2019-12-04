@@ -17,7 +17,7 @@ import { environment } from '../../../environments/environment';
 export class WebcamModalComponent {
 
   public webcamImage: WebcamImage = null;
-  cloudResponseSub: Subscription;
+  cloudResponse: Subscription;
   constructor(
     public router: Router,
     private http: HttpClient
@@ -29,8 +29,8 @@ export class WebcamModalComponent {
   public process() {
 
     const base64Image = this.webcamImage.imageAsBase64;
-    //this.cloudSubOpened = true;
-    this.cloudResponseSub = this.http.post(
+
+    this.cloudResponse = this.http.post(
       `https://vision.googleapis.com/v1/images:annotate?key=${environment.cloudvisionConfig.apiKey}`,
       {
         "requests": [
@@ -48,15 +48,13 @@ export class WebcamModalComponent {
       },
       { }
     ).subscribe(resp => {
-      let text: string;
-      text = resp['responses'][0].fullTextAnnotation;
-      console.log(`TEXT: ${text}`);
-      if (text === '') {
-        alert('No text identified. Please try again.');
+      //let text: string;
+      const r = resp['responses'][0].fullTextAnnotation;
+      if (!r) {
+        // alert('No text identified.');
       } else {
-        console.log(`TEXT: ${text}`);
-        text = text.replace('\/', '');
-        this.router.navigate([`create/process/${text}`]);
+        console.log(`RETURNED TEXT: ${r.text}`);
+        this.router.navigate([`add/${r.text}`]); // process text returned from cloud vision
       }
     });
   }

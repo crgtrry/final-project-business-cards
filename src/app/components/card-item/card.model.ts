@@ -5,13 +5,14 @@ export class Card {
   private phone: string;
   private imageLocation: string;
 
-  constructor(id: string, name: string, email: string, phone: string, imageLocation: string) {
-    this.id = id;
-    this.name = name;
-    this.email = email;
-    this.phone = phone;
-    this.imageLocation = imageLocation; // This is the card image which generated the business card
+  constructor() {// This is the card image which generated the business card
+    this.id = '';
+    this.name = '';
+    this.email = '';
+    this.phone = '';
+    this.imageLocation = '';
   }
+
 
   public getId() {
     return this.id;
@@ -33,7 +34,7 @@ export class Card {
     this.email = email;
   }
 
-  public getPhome() {
+  public getPhone() {
     return this.phone;
   }
 
